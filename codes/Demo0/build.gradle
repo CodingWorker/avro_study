@@ -1,16 +1,3 @@
-plugins {
-  id "com.commercehub.gradle.plugin.avro" version "0.9.0"
-}
-
-avro {
-    outputCharacterEncoding = "UTF-8"
-	stringType = "CharSequence"
-}
-
-task generateAvro(type: com.commercehub.gradle.plugin.avro.GenerateAvroJavaTask) {
-    source("src/main/avro")
-    outputDir = file("src/main/java")
-}
 dependencies {
 
 }
