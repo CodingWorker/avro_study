@@ -1,0 +1,11 @@
+{"namespace": "com.test.advance",
+ "type": "record",
+ "name": "Advance",
+ "aliases":["advance0","advance1"],
+ "doc":"avro进阶学习",
+ "fields": [
+     {"name": "name", "type": "string"},
+     {"name": "age",  "type": ["int", "null"]},
+     {"name": "score", "type": ["int", "null"]}
+ ]
+}
