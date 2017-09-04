@@ -1,0 +1,7 @@
+{
+    "namespace":"com.test.pojo",
+    "type":"enum",
+    "name":"Day",
+    "doc":"一周的枚举",
+    "symbols":["MON","TUE","WEN","THR","FRI","SAT","SUN"]
+}

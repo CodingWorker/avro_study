@@ -4,6 +4,17 @@
  "fields": [
      {"name": "name","type": "string"},
      {"name": "age","type": "int"},
-     {"name": "score","type": ["int", "null"]}
-  ]
+     {"name": "nickName","type":{"type":"array","items":"string"}},
+     {"name":"score","type":{"type":"map","values":"long"}},
+     {"name": "md5","type":{"name":"myFixed","type": "fixed", "size": 16}},
+     {"name": "avgscore","type": ["int", "null"]}
+  ],
+ "messages": {
+     "hello": {
+       "doc": "Say hello.",
+       "request": [{"name": "greeting", "type": "string" }],
+       "response": "string"
+     }
+   }
+
  }
