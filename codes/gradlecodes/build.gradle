@@ -4,8 +4,21 @@ allprojects {
 
     apply plugin: 'java'
     apply plugin: 'idea'
-    apply plugin: "avro-gradle-plugin"
+    buildscript {
+        repositories {
+            maven {
+                url "https://plugins.gradle.org/m2/"
+            }
+        }
+        dependencies {
+            classpath "com.commercehub.gradle.plugin:gradle-avro-plugin:0.9.1"
+        }
+    }
+    apply plugin: "com.commercehub.gradle.plugin.avro"
 
+    plugins {
+        id "com.commercehub.gradle.plugin.avro" version "0.9.1"
+    }
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
 
@@ -14,20 +27,38 @@ allprojects {
         sourceSet*.resources.srcDirs*.each { it.mkdirs() }
     }
 
+    task generateAvro(type: com.commercehub.gradle.plugin.avro.GenerateAvroJavaTask) {
+        source("src/main/avro")
+        outputDir = file("src/main/java")
+    }
+
     repositories {
+        jcenter()
         mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+
+    avro {
+        createSetters = false
+        fieldVisibility = "PRIVATE"
     }
 
     dependencies {
         testCompile group: 'junit', name: 'junit', version: '4.11'
-        // https://mvnrepository.com/artifact/org.apache.avro/avro
-        compile group: 'org.apache.avro', name: 'avro', version: '1.7.6'
-
-        // https://mvnrepository.com/artifact/org.apache.avro/avro-tools
-        compile group: 'org.apache.avro', name: 'avro-tools', version: '1.7.7'
-
-        // https://mvnrepository.com/artifact/org.apache.avro/avro-compiler
-        compile group: 'org.apache.avro', name: 'avro-compiler', version: '1.7.7'
+//        // https://mvnrepository.com/artifact/org.apache.avro/avro
+//        compile group: 'org.apache.avro', name: 'avro', version: '1.7.6'
+//
+//        // https://mvnrepository.com/artifact/org.apache.avro/avro-tools
+//        compile group: 'org.apache.avro', name: 'avro-tools', version: '1.7.7'
+//
+//        // https://mvnrepository.com/artifact/org.apache.avro/avro-compiler
+//        compile group: 'org.apache.avro', name: 'avro-compiler', version: '1.7.7'
+        compile ('org.apache.curator:curator-framework:2.11.1')
+        compile ('org.apache.curator:curator-recipes:2.11.1')
+        compile ('org.apache.avro:avro:1.8.1')
+        compile ('org.apache.avro:avro-ipc:1.8.1')
     }
 }
 
