@@ -1,0 +1,28 @@
+group 'com.test'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility=1.8
+
+task "create-srcs"<<{
+    sourceSets*.java.srcDirs*.each{it.mkdirs()}
+    sourceSets*.resources.srcDirs*.each{it.mkdirs()}
+}
+
+repositories {
+    maven{url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+//    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+// https://mvnrepository.com/artifact/org.apache.avro/avro
+    compile group: 'org.apache.avro', name: 'avro', version: '1.7.6'
+// https://mvnrepository.com/artifact/org.apache.avro/avro-tools
+    compile group: 'org.apache.avro', name: 'avro-tools', version: '1.7.6'
+// https://mvnrepository.com/artifact/org.apache.avro/avro-compiler
+    compile group: 'org.apache.avro', name: 'avro-compiler', version: '1.7.6'
+
+}

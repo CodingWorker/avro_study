@@ -1,0 +1,8 @@
+#for jars
+**/jars/*
+#for maven
+**/target/*
+#for idea
+**/.idea/*
+#for gradle
+**/.gradle/*

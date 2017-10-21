@@ -1,0 +1,25 @@
+{
+   "namespace": "com.test.study_avro.User",
+"name": "User",
+   "type": "record",
+      "fields": [
+      {
+         "name": "name",
+         "type": "string"
+      },
+      {
+         "name": "favorite_number",
+         "type": [
+            "int",
+            "null"
+         ]
+      },
+      {
+         "name": "favorite_color",
+         "type": [
+            "string",
+            "null"
+         ]
+      }
+   ]
+}
