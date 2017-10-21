@@ -1,9 +1,10 @@
-	{"namespace": "com.test.avro_study.model",
- "type": "record",
+{
+    "namespace": "com.test.avro_study.model",
+    "type": "record",
 	 "name": "Person",
 	 "fields": [
-     {"name": "name", "type": "string"},
+         {"name": "name", "type": "string"},
 	     {"name": "age",  "type": ["int", "null"]},
 	     {"name": "email", "type": ["string", "null"]}
-]
-	}
+    ]
+}

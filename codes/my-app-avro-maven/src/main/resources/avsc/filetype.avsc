@@ -1,0 +1,6 @@
+{
+    "namespace":"com.test.avro_study.enums",
+    "name":"MyFileType",
+    "type":"enum",
+    "symbols":["FileType","DirectoryType"]
+}

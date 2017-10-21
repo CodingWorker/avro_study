@@ -1,0 +1,14 @@
+{
+    "namespace":"com.test.avro_study.model",
+    "name":"MyFile",
+    "type":"record",
+    "doc":"注释：我的文件,包含别名",
+    "alias":["f1","f2","f3"],
+    "fields":[
+        {"name":"name","doc":"文件名字","type":"string","default":"","order":"ignore","aliases":["f_n1","f_n2"]},
+        {"name":"path","doc":"文件路径","type":"string","default":"","aliases":["filePath"]},
+        {"name":"length","doc":"文件长度","type":"int","default":0},
+        {"name":"isEmpty","doc":"文件是否为空","type":"boolean","default":false},
+        {"name":"createTime","doc":"文件创建时间","type":"string"}
+    ]
+}

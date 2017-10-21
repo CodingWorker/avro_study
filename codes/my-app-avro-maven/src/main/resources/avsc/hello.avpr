@@ -1,0 +1,30 @@
+{
+    "namespace":"com.test.avro_study",
+    "protocol":"Hello",
+    "doc":"问候类",
+    "types":[
+        {
+            "name":"Greeting",
+            "type":"record",
+            "fields":[
+                {"name":"msg","doc":"消息","type":["null","string"],"default":null}
+            ]
+        },
+        {
+            "name":"Curse",
+            "type":"error",
+            "fields":[
+                {"name":"msg","doc":"异常消息","type":"string"}
+            ]
+        }
+    ],
+    "messages":{
+        "hello":{
+            "request":[
+                {"name":"greeting","doc":"消息参数","type":"Greeting"}
+            ],
+            "response":"Greeting",
+            "error":["Curse"]
+        }
+    }
+}

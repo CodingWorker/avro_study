@@ -1,0 +1,11 @@
+{
+    "namespace":"com.test.avro_study.model",
+    "name":"MyDirectory",
+    "type":"record",
+    "fields":[
+        {"name":"name","doc":"目录名","type":"string"},
+        {"name":"path","doc":"目录路径","type":"string"},
+        {"name":"fileCount","doc":"目录下文件个数","type":"int"},
+        {"name":"isEmpty","type":"boolean"}
+    ]
+}
